@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/dark/Documents/Linux-Basics-for-Hackers-master'
+let g:netrw_dirhist_5='/home/dark/Documents/kali'
+let g:netrw_dirhist_4='/home/dark/Documents/Future'
+let g:netrw_dirhist_3='/etc/v2raya'
+let g:netrw_dirhist_2='/etc/wireguard'
+let g:netrw_dirhist_1='/home/dark'

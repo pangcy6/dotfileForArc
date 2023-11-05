@@ -1,0 +1,6 @@
+2023/11/05-07:31:52.943 481f Creating DB /home/dark/.config/google-chrome/Default/IndexedDB/https_replit.com_0.indexeddb.leveldb since it was missing.
+2023/11/05-07:31:52.951 481f Reusing MANIFEST /home/dark/.config/google-chrome/Default/IndexedDB/https_replit.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/11/05-07:31:53.070 4822 Level-0 table #5: started
+2023/11/05-07:31:53.076 4822 Level-0 table #5: 1259 bytes OK
+2023/11/05-07:31:53.087 4822 Delete type=0 #3
+2023/11/05-07:31:53.087 481f Manual compaction at level-0 from '\x00\x01\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x02\x00\x00\x00' @ 0 : 0; will stop at (end)

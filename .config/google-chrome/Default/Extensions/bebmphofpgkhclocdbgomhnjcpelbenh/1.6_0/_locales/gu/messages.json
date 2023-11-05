@@ -1,0 +1,38 @@
+{
+   "btn_history_clear": {
+      "message": "Clear history"
+   },
+   "btn_settings_save": {
+      "message": "Save and close"
+   },
+   "description": {
+      "message": "Experience instant translation of any web page with Google Translate. Automatic grammar checker, punctuation checker and more."
+   },
+   "double_click": {
+      "message": "Double-click translation"
+   },
+   "double_click_false": {
+      "message": "Disabled"
+   },
+   "double_click_true": {
+      "message": "Enabled"
+   },
+   "icon_trans": {
+      "message": "Select to translate"
+   },
+   "name": {
+      "message": "Grammar Checker"
+   },
+   "settings": {
+      "message": "Settings"
+   },
+   "translate": {
+      "message": "Translate"
+   },
+   "translate_to_additional": {
+      "message": "Translate to:"
+   },
+   "view_mode": {
+      "message": "Choose popup theme:"
+   }
+}

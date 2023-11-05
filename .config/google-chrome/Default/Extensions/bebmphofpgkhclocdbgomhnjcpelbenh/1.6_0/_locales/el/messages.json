@@ -1,0 +1,38 @@
+{
+   "btn_history_clear": {
+      "message": "Clear history"
+   },
+   "btn_settings_save": {
+      "message": "Save and close"
+   },
+   "description": {
+      "message": "Translator and Dictionary, one click to Translate words, Translate phrase to any Language with Google Translator."
+   },
+   "double_click": {
+      "message": "Double-click translation"
+   },
+   "double_click_false": {
+      "message": "Disabled"
+   },
+   "double_click_true": {
+      "message": "Enabled"
+   },
+   "icon_trans": {
+      "message": "Select to translate"
+   },
+   "name": {
+      "message": "Online Translator"
+   },
+   "settings": {
+      "message": "Settings"
+   },
+   "translate": {
+      "message": "Translate"
+   },
+   "translate_to_additional": {
+      "message": "Translate to:"
+   },
+   "view_mode": {
+      "message": "Choose popup theme:"
+   }
+}

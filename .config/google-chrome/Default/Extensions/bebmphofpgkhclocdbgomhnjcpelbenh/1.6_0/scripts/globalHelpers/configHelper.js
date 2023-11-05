@@ -1,0 +1,1 @@
+const APP_WINDOW_PARAMS_WINDOWS={width:496,height:590,left:screen.width/2-300,top:screen.height/2-300,url:"../html/openedPopup.html",type:"popup"},APP_WINDOW_PARAMS_MAC={width:480,height:560,left:screen.width/2-300,top:screen.height/2-300,url:"../html/openedPopup.html",type:"popup"};

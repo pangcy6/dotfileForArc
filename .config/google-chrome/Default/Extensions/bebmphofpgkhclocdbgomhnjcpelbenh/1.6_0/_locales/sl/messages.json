@@ -1,0 +1,38 @@
+{
+   "btn_history_clear": {
+      "message": "Clear history"
+   },
+   "btn_settings_save": {
+      "message": "Save and close"
+   },
+   "description": {
+      "message": "Takoj prevedite besedilo na kateri koli spletni strani z uporabo Google Translate. Spletni prevajalec, natančno prevajanje."
+   },
+   "double_click": {
+      "message": "Double-click translation"
+   },
+   "double_click_false": {
+      "message": "Disabled"
+   },
+   "double_click_true": {
+      "message": "Enabled"
+   },
+   "icon_trans": {
+      "message": "Select to translate"
+   },
+   "name": {
+      "message": "Prevajalec, slovar - natančno prevajanje"
+   },
+   "settings": {
+      "message": "Settings"
+   },
+   "translate": {
+      "message": "Translate"
+   },
+   "translate_to_additional": {
+      "message": "Translate to:"
+   },
+   "view_mode": {
+      "message": "Choose popup theme:"
+   }
+}

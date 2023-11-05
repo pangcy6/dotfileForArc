@@ -1,0 +1,38 @@
+{
+   "background": {
+      "scripts": [ "scripts/hot-reload.js", "scripts/globalHelpers/langHelper.js", "scripts/globalHelpers/dataBaseHelper.js", "scripts/globalHelpers/configHelper.js", "scripts/globalHelpers/utilsHelper.js", "scripts/globalHelpers/coreHelper.js", "scripts/jquery.js", "scripts/background.js" ]
+   },
+   "browser_action": {
+      "default_icon": "images/128.png",
+      "default_popup": "html/popup.html",
+      "default_title": "Translator"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "css": [ "styles/content.css", "styles/allPage.css" ],
+      "exclude_matches": [ "*://translate.google.com/*" ],
+      "js": [ "scripts/jquery.js", "scripts/globalHelpers/translateHelper.js", "scripts/globalHelpers/audioHelper.js", "scripts/globalHelpers/langHelper.js", "scripts/content.js" ],
+      "matches": [ "\u003Call_urls>" ]
+   }, {
+      "all_frames": true,
+      "css": [ "styles/content.css", "styles/allPage.css" ],
+      "js": [ "scripts/jquery.js", "scripts/globalHelpers/wholePageTranslateHelper.js" ],
+      "matches": [ "*://*.translate.goog/*" ]
+   } ],
+   "content_security_policy": "script-src 'self' 'unsafe-eval' ;object-src 'self';",
+   "default_locale": "en",
+   "description": "__MSG_description__",
+   "icons": {
+      "128": "images/128.png",
+      "48": "images/48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsTSFERad1cRpQJ86qCn+dFINRcyQALciTUMv9Zi2ortBbp3uHeRBJOLlDUgPPx99YRg48WGZ2OHZAtiovU6N+nwzxrHmQ5utrI4tD0EyhgVOBbrzV7iLlJvnYyieeCzM6N7Q+EBWSglgLMbirZ1mtRc0evMShl1SaVw/CwKqW3VgJcar2NLyMAwmPwYPAlhTZ5qg6I/YXQAZQgMFo6xSRXZggJTobloYRBx5+ywugKK5WwLNxFw3jIF60H02u2FhDKigLETV8VscBoDNbPBiT/rPvb8g52EmHZY7nW0r8Fh4X8ZJweV4Kj83+1fSMTBfZVoi20rp+Ll3FrgPPgg25QIDAQAB",
+   "manifest_version": 2,
+   "name": "__MSG_name__",
+   "options_page": "html/settings.html",
+   "permissions": [ "contextMenus", "\u003Call_urls>", "storage", "tabs", "webRequest", "webRequestBlocking" ],
+   "short_name": "Translator",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.6",
+   "web_accessible_resources": [ "scripts/*", "images/*", "styles/*", "fonts/*" ]
+}

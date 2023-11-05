@@ -1,0 +1,90 @@
+"number
+set number				"显示行号
+set relativenumber		"显示相对行号(这个非常重要,慢慢体会.)
+
+"airline
+set noshowmode          "airline下关闭原生的模式显示
+let g:airline_theme='simple'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+set clipboard=unnamed   "暂存器和系统剪贴板共通
+
+"indent
+set autoindent			"自动缩进
+set smartindent			"智能缩进
+set tabstop=4			"设置tab所占宽度为4
+set softtabstop=4		"设置按tab时缩进为4
+set shiftwidth=4		"设置自动缩进为4
+set expandtab			"缩进时将tab转换为空格
+
+"split
+set splitbelow          " :new时在下方开启新档案
+set splitright          " :vnew在右边开启
+
+"color
+syntax on				"开启语法高亮
+"set hlsearch			"搜索结果高亮
+set ignorecase          "搜索关键词忽略大小写
+set smartcase           "关键词出现大写字符时自动恢复精确搜索
+set fileencodings=utf-8,gbk,gb2312,gb18030	"支持的编码类型
+
+"filetype
+filetype on				"开启文件类型检测
+filetype indent on      "根据文件类型自动缩进
+filetype plugin on		"根据程序语言导入外挂
+
+"key mapping
+set pastetoggle=<F9>            "粘贴时保持格式开关
+map <C-n> :NERDTreeToggle<CR>   "Nerdtree开关
+noremap <Space> <PageDown>
+noremap <S-Space> <PageUp>
+
+"vim-plug 管理的插件
+"指定插件保存位置
+call plug#begin('~/.vim/bundle')
+Plug 'honza/vim-snippets'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+call plug#end()
+
+"插入模式下移动光标的几个键盘映射
+"i代表输入模式
+"nore代表非递归映射
+"map代表键盘
+inoremap <C-h> <Left>
+"inoremap <C-j> <Down>
+"inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+"inoremap <C-d> <DELETE>
+inoremap ( ()<ESC>i
+inoremap [ []<ESC>i
+inoremap { {}<ESC>i
+inoremap " ""<ESC>i
+inoremap < <><ESC>i
+
+"一键运行代码
+map <F5> :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+    exec "w"
+    if &filetype == 'c'
+        exec "!g++ % -o %<"
+        exec "!time ./%<"
+    elseif &filetype == 'cpp'
+        exec "!g++ % -o %<"
+        exec "!time ./%<"
+    elseif &filetype == 'java'
+        exec "!java %"
+        exec "!time java ./%<"
+    elseif &filetype == 'sh'
+        :!time bash %
+    elseif &filetype == 'python'
+        exec "!clear"
+        exec "!time python3 %"
+    elseif &filetype == 'go'
+        exec "!go build %<"
+        exec "!time go run %"
+    endif
+endfunc
+
+"END

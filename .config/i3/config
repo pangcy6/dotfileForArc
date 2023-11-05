@@ -1,0 +1,199 @@
+#设置热键及变量
+set $mod Mod4
+set $sup Mod1
+set $run exec --no-startup-id
+
+#border none
+new_window pixel 1
+
+#标题栏字体
+font pango:DejaVu Sans Mono 10
+
+#用‘鼠标+$mod’移动浮动窗口
+floating_modifier $mod
+
+#i3-gaps窗口间距
+gaps inner 10
+gaps outer 5
+smart_gaps on
+
+#快速关闭当前窗口
+bindsym $mod+c kill
+
+# Container action
+# change focus (vim style)
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused container
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Workspace action
+# Switching between workspace
+bindsym $mod+Right workspace next
+bindsym $mod+Left workspace prev
+bindsym $mod+Shift+Right move container to workspace next
+bindsym $mod+Shift+Left move container to workspace prev
+bindsym $mod+d workspace back_and_forth
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+#默认新建面板排列方式为水平
+bindsym $mod+b split h
+#设置新建面板排列为垂直
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout [stacking(堆叠式), tabbed(标签式)]
+# i3-gaps已失效
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+# 恢复默认布局方式
+#bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change FOCUS between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent(当前工作区所有窗口) container
+bindsym $mod+a focus parent
+
+# scraptchpad 是一个特殊不显示的缓冲区，功能类似workspace
+bindsym $mod+Shift+minus move scratchpad
+
+# mod - 显示第一个隐藏的窗口
+bindsym $mod+minus scratchpad show
+
+#把某些workspace输出到外接显示器
+#在终端执行xrandr,会得到外接显示器名称：VGA1,HTMI1,dp1,dp2等等
+#workspace 9 output HDMI1
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        bindsym h resize shrink width 10 px
+        bindsym j resize grow height 10 px
+        bindsym k resize shrink height 10 px
+        bindsym l resize grow width 10 px
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px
+        bindsym Down resize grow height 10 px
+        bindsym Up resize shrink height 10 px
+        bindsym Right resize grow width 10 px
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# Resize container
+bindsym $mod+r mode "resize"
+
+# Power manage:
+set $Locker i3lock && sleep 1
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l $run $Locker, mode "default"
+    bindsym e $run i3-msg exit, mode "default"
+    bindsym s $run $Locker && systemctl suspend, mode "default"
+    bindsym h $run $Locker && systemctl hibernate, mode "default"
+    bindsym r $run systemctl reboot, mode "default"
+    bindsym Shift+s $run systemctl poweroff -i, mode "default"  
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+o mode "$mode_system"
+
+#Sound control
+#bindsym XF86AudioRaiseVolume exec amixer -q set Master 2%+ -q
+#bindsym XF86AudioLowerVolume exec amixer -q set Master 2%- -q
+#bindsym XF86AudioMute exec amixer -q set Master toggle
+bindsym Shift+Up exec amixer -q set Master 2%+ -q
+bindsym Shift+Down exec amixer -q set Master 2%- -q
+bindsym Shift+F1 exec amixer -q set Master toggle
+
+# 设置程序以浮动模式打开
+# use 'xprop' or 'wwininfo' to get window information
+for_window [class="Mpv"] floating enable
+for_window [class="listen1"] floating enable
+for_window [class="Thunar"] floating enable
+for_window [class="Mousepad"] floating enable
+for_window [class="Galculator"] floating enable
+for_window [class="Virt-manager"] floating enable
+
+#Floating window default size.
+floating_minimum_size 75 x 50
+floating_maximum_size -1 x -1
+
+# 将xterm送到scratchpad开启
+#for_window [class="XTerm"] move to scratchpad
+
+# assign program to specific workspace/让程序在默认窗口打开
+#assign [class="Gimp"] 6
+
+# Autostart apps
+exec --no-startup-id picom -b &
+exec --no-startup-id fcitx5 -d
+exec --no-startup-id feh --bg-fill ~/.config/i3/jpg/blueMoon.jpg
+
+#Polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+#截屏
+bindsym Print $run "scrot -e 'mv $f ~/screenShots/ 2>/dev/null'"
+
+#打开程序快捷键
+bindsym $mod+Return $run alacritty
+bindsym $mod+p $run "rofi -show drun -theme lb"			
+
+bindsym $sup+c $run google-chrome-stable 
+bindsym $sup+d $run telegram-desktop
+bindsym $sup+j $run galculator
+bindsym $sup+m $run mousepad
+bindsym $sup+p $run gimp
+bindsym $sup+t $run thunar
+bindsym $sup+v $run virt-manager
+bindsym $sup+l $run listen1
+bindsym $sup+z $run zathura
+
+# END

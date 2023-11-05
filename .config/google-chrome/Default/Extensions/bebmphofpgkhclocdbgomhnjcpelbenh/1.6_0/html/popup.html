@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="../styles/loaderStyles.css">
+    <link rel="stylesheet" type="text/css" href="../styles/commonStyles.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/commonStyles.style.css"/>
+    <link rel="stylesheet" href="../styles/popup.css">
+    <meta charset="utf-8">
+</head>
+<body class="popup-mode">
+    <header class="header background">
+        <h1 class="app-title">Translator</h1>
+        <div class="header__control-buttons">
+            <span class="pin-button"></span>
+            <button class="history-button"></button>
+            <span class="settings-button"></span>
+        </div>
+    </header>
+    <div id="message" class="announcement" style="display: none;">
+        <div class="announcement-wrapper">
+            <button class="announcement-close" tabindex="-1">×</button>
+            <div class="announcement-title"></div>
+            <div class="announcement-message"></div>
+        </div>
+    </div>
+    <main class="container">
+        <div class="translation-controls">
+            <div class="wrapper_data">
+                <img class="fromTranslation translation-controls__translate-from" />
+                <div class="translation-controls__translate-from">English</div>
+                <img class="triangle translation-controls__translate-from" src="../images/triangle_left.svg"/>
+            </div>
+
+            <div class="translation-controls__translation-icon"></div>
+            <div class="wrapper_data">
+                <img class="toTranslation translation-controls__translate-to" src=""/>
+                <div class="translation-controls__translate-to">Russian</div>
+                <img class="triangle translation-controls__translate-to" src="../images/triangle_left.svg"/>
+            </div>
+        </div>
+        <div class="translation">
+            <div class="translation__init-text-wrapper">
+                <textarea class="translation__init-text"></textarea>
+                <div class="translation__init-text-btns control-btns hidden_translate">
+                    <span class="clear-text"></span>
+                    <span class="sound-text"></span>
+                </div>
+            </div>
+            <div class="translation__result-text">
+                <div class="translation__words"></div>
+                <div class="translation__sentences"></div>
+                <div class="control-btns hidden_translate">
+                    <span class="clear-fields"></span>
+                    <span class="sound-text"></span>
+                </div>
+            </div>
+            <div class="btns_wrapper">
+                <button class="translation__button">Translate</button>
+                <button class="page-translator">Translate Page</button>
+            </div>
+        </div>
+        <div class="select-language hidden_translate">
+            <div class="select-language__search">
+                <span class="select-language__back"></span>
+                <h1 class="app-title">select language</h1>
+                <!-- <input class="select-language__text" type="text" value="" placeholder="Search language"> -->
+            </div>
+            <div class="select-language__recent">
+                <h2>Recent</h2>
+                <ul class="select-language__recent-list"></ul>
+            </div>
+            <div class="select-language__container">
+                <h2>All languages</h2>
+                <ul class="select-language__list"></ul>
+            </div>
+        </div>
+    </main>
+
+    <div class="history-screen hidden_translate">
+        <div class="header header_settings_block margin_left">
+            <div class="settings-block__close"></div>
+            <h1 class="app-title">History</h1>
+            <div class="header__control-buttons margin">
+                <span class="pin-button"></span>
+                <button class="history-button" disabled></button>
+                <span class="settings-button"></span>
+            </div>
+        </div>
+        <div class="history-screen__preloader"></div>
+        <div class="history-screen__header-wrapper">
+            <h2 class="history-screen__main-header"></h2>
+            <span class="history-screen__close-history"></span>
+        </div>
+
+        <ul class="history-screen__list"></ul>
+        <div class="history-screen__info">
+            <span class="history-screen__translations-amount"></span>
+            <button id="btn_history_clear" class="history-screen__clear-history btn_clear"></button>
+        </div>
+    </div>
+    <div class="settings-block hidden_translate">
+        <div class="header header_settings_block">
+            <div class="settings-block__close"></div>
+            <h1 class="app-title">Settings</h1>
+            <div class="header__control-buttons margin">
+                <span class="pin-button"></span>
+                <button class="history-button"></button>
+                <span class="settings-button"></span>
+            </div>
+        </div>
+        <iframe class="settings-block__iframe" src="./settings.html" frameborder="0"></iframe>
+        <!-- <div class="wrapper_btn_save">
+            <button id="btn_settings_save" class="btn_save"></button>
+        </div> -->
+    </div>
+
+    <!-- <div class="additional">
+        <span class="history-button">history</span>
+    </div> -->
+    <script src="../scripts/jquery.js"></script>
+    <script src="../scripts/globalHelpers/langHelper.js"></script>
+    <script src="../scripts/globalHelpers/audioHelper.js"></script>
+    <script src="../scripts/globalHelpers/translateHelper.js"></script>
+    <script src="../scripts/popupHelpers/popupUtilsHelper.js"></script>
+    <script src="../scripts/popupHelpers/popupHandlerHelper.js"></script>
+    <script src="../scripts/popupHelpers/popup.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+2023/11/05-11:53:31.553 551 Reusing MANIFEST /home/dark/.config/listen1/Local Storage/leveldb/MANIFEST-000001
+2023/11/05-11:53:31.553 551 Recovering log #3
+2023/11/05-11:53:31.553 551 Reusing old log /home/dark/.config/listen1/Local Storage/leveldb/000003.log 
+2023/11/05-11:55:19.363 593 Level-0 table #5: started
+2023/11/05-11:55:19.375 593 Level-0 table #5: 25401 bytes OK
+2023/11/05-11:55:19.383 593 Delete type=0 #3
